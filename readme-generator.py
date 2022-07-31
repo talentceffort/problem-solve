@@ -1,6 +1,5 @@
 import os
 
-
 folder_list = []
 readme_list = []
 
@@ -42,7 +41,6 @@ for d in folder_list:
         "## " + d,
         "| 구분 | 유형 | 문제 | 1회 풀이 | 2회 풀이 | 3회 풀이 |",
         "| :-----: | :-----: | :-----: | :-----: | :-----: | :-----: |",
-        # "| ",
     ]
 
     for key in dic.keys():
