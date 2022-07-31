@@ -24,6 +24,7 @@ for d in folder_list:
         trial_count = file[2]
         is_solved = "✅" if file[-1].split(".py")[0] == "O" else "❌"
 
+        ##
         if name in dic:
             dic[name]["trial_result"].append(is_solved)
         else:
