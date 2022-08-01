@@ -1,4 +1,5 @@
 import os
+import sys
 
 folder_list = []
 readme_list = []
@@ -6,6 +7,10 @@ readme_list = []
 for f in os.listdir(os.getcwd()):
     if os.path.isdir(f):
         folder_list.append(f)
+
+
+if ".git" in folder_list:
+    folder_list.pop(folder_list.index(".git"))
 
 
 for d in folder_list:
@@ -16,11 +21,17 @@ for d in folder_list:
 
     dic = {}
 
+    if not file_list:
+        continue
+
     for f in file_list:
         file = f.split("_")
 
+        if len(file) != 4:
+            break
+
         problem_type = file[0]
-        name = file[0] + "_" + file[1]
+        name = file[1]
         trial_count = file[2]
         is_solved = "✅" if file[-1].split(".py")[0] == "O" else "❌"
 
