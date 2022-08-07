@@ -9,9 +9,9 @@ for f in os.listdir(os.getcwd()):
         folder_list.append(f)
 
 
-if ".git" in folder_list:
+if ".git" or "text" in folder_list:
     folder_list.pop(folder_list.index(".git"))
-
+    folder_list.pop(folder_list.index("text"))
 
 for d in folder_list:
     os.chdir(d)
@@ -31,7 +31,7 @@ for d in folder_list:
             break
 
         problem_type = file[0]
-        name = file[1]
+        name = file[0] + "_" + file[1]
         trial_count = file[2]
         is_solved = "✅" if file[-1].split(".py")[0] == "O" else "❌"
 
@@ -44,7 +44,7 @@ for d in folder_list:
             dic[name]["trial_result"].append(is_solved)
 
         dic[name]["problem_type"] = problem_type
-        dic[name]["name"] = name
+        dic[name]["name"] = name.split("_")[1]
         dic[name]["trial_count"] = len(dic[name]["trial_result"])
 
     os.chdir("../")
