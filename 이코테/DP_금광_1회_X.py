@@ -20,6 +20,7 @@ for z in range(t):
         dp.append(array[index : index + m])
         index = index + m
 
+    # 2차원 배열 세로부터 가로로 탐색
     for j in range(1, m):
         for i in range(n):
             left_up = 0 if i == 0 else dp[i - 1][j - 1]
